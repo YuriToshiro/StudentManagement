@@ -29,8 +29,17 @@ public:
     // get input from a string
     student &split_info(string s);
 
-    // write to file
+    // get input from keyboard
+    void inputFromKeyboard();
+
+    // write output
     friend ostream &operator<<(ostream &out, const student &s);
+    void display();
+
+    // get methods
+    string getName() const;
+    string getID() const;
+    Date getDOB() const;
 
     // calculate average mark
     float avg() const;

@@ -23,7 +23,7 @@ public:
     TYPE &operator[](int i) const;
     void push_back(const TYPE &val);
     TYPE &back();
-    void insert(int i, TYPE &val);
+    void insert(int i, const TYPE &val);
     void erase(int i);
 
     // get size and capacity
@@ -57,9 +57,13 @@ vector<TYPE> &vector<TYPE>::operator=(const vector<TYPE> &v)
     if (this != &v)
     {
         delete[] ptr;
-        ptr = v.ptr;
         sz = v.sz;
         cpty = v.cpty;
+        ptr = new TYPE[cpty];
+        for (int i = 0; i < sz; ++i)
+        {
+            ptr[i] = v.ptr[i];
+        }
     }
     return *this;
 }
@@ -70,6 +74,7 @@ vector<TYPE>::~vector()
     if (ptr != nullptr)
     {
         delete[] ptr;
+        ptr = nullptr;
     }
     sz = 0;
     cpty = 0;
@@ -78,9 +83,18 @@ vector<TYPE>::~vector()
 template <class TYPE>
 TYPE &vector<TYPE>::operator[](int i) const
 {
-    if (i >= 0 && i < sz)
+    try
     {
+        if (i < 0 || i >= sz)
+        {
+            throw i;
+        }
         return ptr[i];
+    }
+    catch (int i)
+    {
+        cout << "Index out of range: " << i << endl;
+        exit(1);
     }
 }
 
@@ -101,7 +115,7 @@ void vector<TYPE>::push_back(const TYPE &val)
 }
 
 template <class TYPE>
-void vector<TYPE>::insert(int i, TYPE &val)
+void vector<TYPE>::insert(int i, const TYPE &val)
 {
     if (sz >= cpty)
     {
@@ -136,6 +150,7 @@ void vector<TYPE>::erase(int i)
     {
         ptr[j] = ptr[j + 1];
     }
+    delete (ptr + sz - 1);
     sz--;
 }
 

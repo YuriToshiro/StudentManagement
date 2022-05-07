@@ -66,22 +66,81 @@ student &student::split_info(string s)
     return *this;
 }
 
+void student::inputFromKeyboard()
+{
+    cout << "Input name: ";
+    getline(cin, name);
+    cout << "Input id: ";
+    cin >> id;
+    cout << "Input date of birth (dd/mm/yyyy): ";
+    char c;
+    cin >> dob.d >> c >> dob.m >> c >> dob.y;
+    cout << "Input marks: ";
+    float m;
+    for (int i = 0; i < 3; ++i)
+    {
+        cin >> m;
+        marks.push_back(m);
+    }
+}
+
 float student::avg() const
 {
     return marks[0] * 0.25 + marks[1] * 0.25 + marks[2] * 0.5;
 }
 
+void student::display()
+{
+    cout << "Name: " << name << endl;
+    cout << "ID: " << id << endl;
+    cout << "DOB: ";
+    if (dob.d < 10)
+    {
+        cout << "0";
+    }
+    cout << dob.d << "/";
+    if (dob.m < 10)
+    {
+        cout << "0";
+    }
+    cout << dob.m << "/" << dob.y << endl;
+    cout << "Marks: ";
+    for (int i = 0; i < marks.size(); ++i)
+    {
+        cout << marks[i] << " ";
+    }
+    cout << endl;
+    cout << "AVG: " << avg() << endl;
+}
+
 ostream &operator<<(ostream &out, const student &s)
 {
-    out << "Name: " << s.name << endl;
-    out << "ID: " << s.id << endl;
-    out << "DOB: " << s.dob.d << "/" << s.dob.m << "/" << s.dob.y << endl;
-    out << "Marks: ";
-    for (int i = 0; i < s.marks.size(); ++i)
+    out << s.name << "," << s.id << ",";
+    if (s.dob.d < 10)
     {
-        out << s.marks[i] << " ";
+        out << "0";
     }
-    out << endl;
-    out << "AVG: " << s.avg() << endl;
+    out << s.dob.d << "/";
+    if (s.dob.m < 10)
+    {
+        out << "0";
+    }
+    out << s.dob.m << "/" << s.dob.y << ",";
+    out << s.marks[0] << "," << s.marks[1] << "," << s.marks[2];
     return out;
+}
+
+string student::getName() const
+{
+    return name;
+}
+
+string student::getID() const
+{
+    return id;
+}
+
+Date student::getDOB() const
+{
+    return dob;
 }
