@@ -150,7 +150,6 @@ void vector<TYPE>::erase(int i) // remove an element at i position
     {
         ptr[j] = ptr[j + 1];
     }
-    delete (ptr + sz - 1);
     sz--;
 }
 
