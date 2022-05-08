@@ -81,7 +81,7 @@ vector<TYPE>::~vector()
 }
 
 template <class TYPE>
-TYPE &vector<TYPE>::operator[](int i) const
+TYPE &vector<TYPE>::operator[](int i) const // return the i-th element
 {
     try
     {
@@ -99,13 +99,13 @@ TYPE &vector<TYPE>::operator[](int i) const
 }
 
 template <class TYPE>
-TYPE &vector<TYPE>::back()
+TYPE &vector<TYPE>::back() // return the last element
 {
     return ptr[sz - 1];
 }
 
 template <class TYPE>
-void vector<TYPE>::push_back(const TYPE &val)
+void vector<TYPE>::push_back(const TYPE &val) // add an element to the end
 {
     if (sz >= cpty)
     {
@@ -115,7 +115,7 @@ void vector<TYPE>::push_back(const TYPE &val)
 }
 
 template <class TYPE>
-void vector<TYPE>::insert(int i, const TYPE &val)
+void vector<TYPE>::insert(int i, const TYPE &val) // insert an element at i position
 {
     if (sz >= cpty)
     {
@@ -140,7 +140,7 @@ void vector<TYPE>::insert(int i, const TYPE &val)
 }
 
 template <class TYPE>
-void vector<TYPE>::erase(int i)
+void vector<TYPE>::erase(int i) // remove an element at i position
 {
     if (i < 0 || i > sz)
     {
@@ -155,19 +155,19 @@ void vector<TYPE>::erase(int i)
 }
 
 template <class TYPE>
-int vector<TYPE>::size() const
+int vector<TYPE>::size() const // return the size
 {
     return sz;
 }
 
 template <class TYPE>
-int vector<TYPE>::capacity() const
+int vector<TYPE>::capacity() const // return the capacity
 {
     return cpty;
 }
 
 template <class TYPE>
-void vector<TYPE>::reserve(int newalloc)
+void vector<TYPE>::reserve(int newalloc) // reserve memory
 {
     if (sz == newalloc)
     {
@@ -188,7 +188,7 @@ void vector<TYPE>::reserve(int newalloc)
 }
 
 template <class TYPE>
-void vector<TYPE>::display()
+void vector<TYPE>::display() // display elements in vector
 {
     for (int i = 0; i < sz; i++)
     {
