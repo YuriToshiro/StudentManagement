@@ -1,5 +1,6 @@
-Nguyen Thi Huong,20120268,15/05/2002,5,6.8,8.5
-Pham Vo Hai Dang,20120338,01/01/2002,9.5,8.25,7
-Nguyen Thi Kim Ngan,20120339,01/01/2002,9.5,8.25,7.5
-Tran Hoang Khai,20120356,12/08/2002,5.6,7.8,9
+Nguyen Thi Huong,20120268,15/05/2002,5,3.8,7.5
+Truong Cao Hoang Gia,20120279,20/10/2002,8.0,7.0,9.0
+Tran Hoang Khai,20120356,12/08/2002,3.3,2.3,4.5
+Pham Vo Hai Dang,20120338,01/01/2002,9.5,8.25,8.5
 Truong Hoang Thien An,20120422,12/05/2002,8.5,6.7,9
+Nguyen Thi Kim Ngan,20120339,01/01/2002,9.5,8.25,7.5
