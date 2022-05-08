@@ -25,13 +25,19 @@ public:
 	student *findByID(string id);
 
 	// get data from file txt
-	void inputdata(string filename);
+	void importFromList(string filename);
+
+	// classfy student by grade
+	string classify(const float avg);
 
 	// store data
-	void output();
-	float avg_class();
+	void writeToList();
 	void output_avg();
+	void output_rank();
 	void display();
+
+	// calculate average of all students
+	float avg_class();
 };
 
 #endif // STUDENT_MS_H

@@ -41,7 +41,7 @@ student &student::operator=(const student &s)
     return *this;
 }
 
-student &student::split_info(string s)
+student &student::split_info(string s) // split info from a formatted string
 {
     vector<string> buffer;
     s.push_back(',');
@@ -84,12 +84,12 @@ void student::inputFromKeyboard()
     }
 }
 
-float student::avg() const
+float student::avg() const // calculate average mark
 {
     return marks[0] * 0.25 + marks[1] * 0.25 + marks[2] * 0.5;
 }
 
-void student::display()
+void student::display() // display student info to screen
 {
     cout << "Name: " << name << endl;
     cout << "ID: " << id << endl;
@@ -113,7 +113,7 @@ void student::display()
     cout << "AVG: " << avg() << endl;
 }
 
-ostream &operator<<(ostream &out, const student &s)
+ostream &operator<<(ostream &out, const student &s) // overload output operator
 {
     out << s.name << "," << s.id << ",";
     if (s.dob.d < 10)

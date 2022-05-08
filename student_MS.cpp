@@ -20,7 +20,7 @@ studentMS::~studentMS()
     // default dtor
 }
 
-void studentMS::add()
+void studentMS::add() // add a new student in asscending order of ID
 {
     student st;
     st.inputFromKeyboard();
@@ -31,7 +31,7 @@ void studentMS::add()
     else
     {
         int i = students.size() - 1;
-        while (i >= 0 && st.getID() < students[i].getID())
+        while (i >= 0 && st.getID() <= students[i].getID())
         {
             i--;
         }
@@ -39,7 +39,7 @@ void studentMS::add()
     }
 }
 
-void studentMS::remove(string id)
+void studentMS::remove(string id) // remove a student by ID
 {
     int l = 0;
     int r = students.size() - 1;
@@ -99,7 +99,7 @@ void studentMS::sortByID()
     }
 }
 
-void studentMS::inputdata(string filename)
+void studentMS::importFromList(string filename)
 {
     ifstream f;
     f.open(filename);
@@ -117,7 +117,7 @@ void studentMS::inputdata(string filename)
     f.close();
 }
 
-void studentMS::output()
+void studentMS::writeToList() // write back to student-list file
 {
     ofstream f;
     f.open("studentList.txt");
@@ -128,7 +128,7 @@ void studentMS::output()
     f.close();
 }
 
-float studentMS::avg_class()
+float studentMS::avg_class() // calculate average mark of all students
 {
     float sum = 0;
     for (int i = 0; i < students.size(); i++)
@@ -139,7 +139,7 @@ float studentMS::avg_class()
     return avg;
 }
 
-void studentMS::output_avg()
+void studentMS::output_avg() // write students info have average marks smaller than average mark of all students
 {
     ofstream f;
     f.open("studentList_avg.txt");
@@ -148,16 +148,57 @@ void studentMS::output_avg()
     {
         if (students[i].avg() < avg_cl)
         {
-            f << students[i] << endl;
+            f << students[i] << "," << students[i].avg() << endl;
         }
     }
     f.close();
 }
 
-void studentMS::display()
+void studentMS::display() // display all students to screen
 {
     for (int i = 0; i < students.size(); i++)
     {
-        cout << students[i] << endl;
+        students[i].display();
+        cout << "Rank: " << classify(students[i].avg()) << endl;
+        cout << "-----------------------------" << endl;
     }
+}
+
+string studentMS::classify(const float avg) // classfy student by average mark
+{
+    if (avg < 3)
+    {
+        return "F";
+    }
+    else if (avg >= 3 && avg < 5)
+    {
+        return "D";
+    }
+    else if (avg >= 5 && avg < 6)
+    {
+        return "C";
+    }
+    else if (avg >= 6 && avg < 8)
+    {
+        return "B";
+    }
+    else if (avg >= 8 && avg <= 10)
+    {
+        return "A";
+    }
+    else
+    {
+        return "NA";
+    }
+}
+
+void studentMS::output_rank() // write students info with their ranks
+{
+    ofstream f;
+    f.open("studentList_rank.txt");
+    for (int i = 0; i < students.size(); i++)
+    {
+        f << students[i] << "," << classify(students[i].avg()) << endl;
+    }
+    f.close();
 }
