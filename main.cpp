@@ -3,9 +3,11 @@
 int main()
 {
     studentMS sm;
-    sm.inputdata("studentlist.txt");
+    sm.importFromList("studentList.txt");
     sm.sortByID();
     sm.remove("20120279");
-    sm.output();
+    sm.output_avg();
+    sm.output_rank();
+    sm.display();
     return 0;
 }
