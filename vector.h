@@ -8,7 +8,7 @@ template <class TYPE>
 class vector
 {
 private:
-    TYPE *ptr;
+    TYPE* ptr;
     int sz;
     int cpty;
 
@@ -17,13 +17,13 @@ public:
     vector();
     vector(int s);
     ~vector();
-    vector<TYPE> &operator=(const vector<TYPE> &v);
+    vector<TYPE>& operator=(const vector<TYPE>& v);
 
     // modify operator
-    TYPE &operator[](int i) const;
-    void push_back(const TYPE &val);
-    TYPE &back();
-    void insert(int i, const TYPE &val);
+    TYPE& operator[](int i) const;
+    void push_back(const TYPE& val);
+    TYPE& back();
+    void insert(int i, const TYPE& val);
     void erase(int i);
 
     // get size and capacity
@@ -52,7 +52,7 @@ vector<TYPE>::vector(int s)
 }
 
 template <class TYPE>
-vector<TYPE> &vector<TYPE>::operator=(const vector<TYPE> &v)
+vector<TYPE>& vector<TYPE>::operator=(const vector<TYPE>& v)
 {
     if (this != &v)
     {
@@ -81,7 +81,7 @@ vector<TYPE>::~vector()
 }
 
 template <class TYPE>
-TYPE &vector<TYPE>::operator[](int i) const // return the i-th element
+TYPE& vector<TYPE>::operator[](int i) const // return the i-th element
 {
     try
     {
@@ -99,13 +99,13 @@ TYPE &vector<TYPE>::operator[](int i) const // return the i-th element
 }
 
 template <class TYPE>
-TYPE &vector<TYPE>::back() // return the last element
+TYPE& vector<TYPE>::back() // return the last element
 {
     return ptr[sz - 1];
 }
 
 template <class TYPE>
-void vector<TYPE>::push_back(const TYPE &val) // add an element to the end
+void vector<TYPE>::push_back(const TYPE& val) // add an element to the end
 {
     if (sz >= cpty)
     {
@@ -115,7 +115,7 @@ void vector<TYPE>::push_back(const TYPE &val) // add an element to the end
 }
 
 template <class TYPE>
-void vector<TYPE>::insert(int i, const TYPE &val) // insert an element at i position
+void vector<TYPE>::insert(int i, const TYPE& val) // insert an element at i position
 {
     if (sz >= cpty)
     {
@@ -176,7 +176,7 @@ void vector<TYPE>::reserve(int newalloc) // reserve memory
     {
         sz = newalloc;
     }
-    TYPE *newptr = new TYPE[newalloc];
+    TYPE* newptr = new TYPE[newalloc];
     for (int i = 0; i < sz; i++)
     {
         newptr[i] = ptr[i];
