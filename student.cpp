@@ -16,7 +16,7 @@ student::student(string name, string id, Date dob, vector<float> marks)
     this->marks = marks;
 }
 
-student::student(const student &s)
+student::student(const student& s)
 {
     name = s.name;
     id = s.id;
@@ -29,7 +29,7 @@ student::~student()
     // dtor
 }
 
-student &student::operator=(const student &s)
+student& student::operator=(const student& s)
 {
     if (this != &s)
     {
@@ -41,7 +41,7 @@ student &student::operator=(const student &s)
     return *this;
 }
 
-student &student::split_info(string s) // split info from a formatted string
+student& student::split_info(string s) // split info from a formatted string
 {
     vector<string> buffer;
     s.push_back(',');
@@ -69,6 +69,7 @@ student &student::split_info(string s) // split info from a formatted string
 void student::inputFromKeyboard()
 {
     cout << "Input name: ";
+    cin.ignore();
     getline(cin, name);
     cout << "Input id: ";
     cin >> id;
@@ -113,7 +114,7 @@ void student::display() // display student info to screen
     cout << "AVG: " << avg() << endl;
 }
 
-ostream &operator<<(ostream &out, const student &s) // overload output operator
+ostream& operator<<(ostream& out, const student& s) // overload output operator
 {
     out << s.name << "," << s.id << ",";
     if (s.dob.d < 10)

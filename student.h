@@ -22,18 +22,18 @@ public:
     // constructor, destructor
     student();
     student(string name, string id, Date dob, vector<float> marks);
-    student(const student &s);
+    student(const student& s);
     ~student();
-    student &operator=(const student &s);
+    student& operator=(const student& s);
 
     // get input from a string
-    student &split_info(string s);
+    student& split_info(string s);
 
     // get input from keyboard
     void inputFromKeyboard();
 
     // write output
-    friend ostream &operator<<(ostream &out, const student &s);
+    friend ostream& operator<<(ostream& out, const student& s);
     void display();
 
     // get methods

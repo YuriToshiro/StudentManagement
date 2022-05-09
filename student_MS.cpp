@@ -5,12 +5,12 @@ studentMS::studentMS()
     // default ctor
 }
 
-studentMS::studentMS(vector<student> &s)
+studentMS::studentMS(vector<student>& s)
 {
     students = s;
 }
 
-studentMS::studentMS(const studentMS &s)
+studentMS::studentMS(const studentMS& s)
 {
     students = s.students;
 }
@@ -61,7 +61,7 @@ void studentMS::remove(string id) // remove a student by ID
     }
 }
 
-student *studentMS::findByID(string id)
+student* studentMS::findByID(string id)
 {
     int l = 0;
     int r = students.size() - 1;

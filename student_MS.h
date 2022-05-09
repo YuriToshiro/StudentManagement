@@ -10,8 +10,8 @@ private:
 public:
 	// constructor, destructor
 	studentMS();
-	studentMS(vector<student> &);
-	studentMS(const studentMS &);
+	studentMS(vector<student>&);
+	studentMS(const studentMS&);
 	~studentMS();
 
 	// add and remove student
@@ -22,7 +22,7 @@ public:
 	void sortByID();
 
 	// find student by id
-	student *findByID(string id);
+	student* findByID(string id);
 
 	// get data from file txt
 	void importFromList(string filename);
